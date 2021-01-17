@@ -2,3 +2,4 @@
 
 ### Chaper 1: Arrays and Strings
 - isUnique - *Determine if given string contains only unique characters*
+- checkPermutation - *Determine if 2 given strings are permutations of each other*
