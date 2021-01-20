@@ -6,3 +6,4 @@
 - urlify - *Replace all spaces in string with %20*
 - isPalindromePermutation - *Check if given string is a palindrome permutation*
 - oneAway - *Check if 2 given strings differ only in 1 character*
+- stringCompression - *Perform basic string compression using the counts of repeated characters*
