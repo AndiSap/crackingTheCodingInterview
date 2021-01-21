@@ -8,3 +8,5 @@
 - oneAway - *Check if 2 given strings differ only in 1 character*
 - stringCompression - *Perform basic string compression using the counts of repeated characters*
 - rotateMatrix90Deg - *Rotate a NxN matrix by 90 degrees*
+- setZero - *Check if an element in MxN matrix is 0 and set entire row and column to 0*
+- isRotation - *Given string s1 and s2, write code to check if s2 ia a rotatoin of s1 using only one call to isSubstring*

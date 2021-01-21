@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import testLogger.TestLogger;
 
-import java.util.Arrays;
-
 public class RotateMatrixTest {
     RotateMatrix instance;
     TestLogger logger = new TestLogger(this);
