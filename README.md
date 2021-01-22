@@ -12,3 +12,5 @@
 - isRotation - *Given string s1 and s2, write code to check if s2 ia a rotatoin of s1 using only one call to isSubstring*
 
 ### Chapter 2: Linked Lists
+- dedupe - *Remove duplicates from an unsorted list*
+- kthToLast - *Find the kth to last element of singly linked list*

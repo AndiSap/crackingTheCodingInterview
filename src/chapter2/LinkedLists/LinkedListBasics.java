@@ -6,7 +6,7 @@ public class LinkedListBasics {
      * Create a singly linked list
      * To have a linked list used by many applications, create Linked List class that wraps this Node class
      */
-    public class Node {
+    public static class Node {
         Node next = null;
         int data;
 

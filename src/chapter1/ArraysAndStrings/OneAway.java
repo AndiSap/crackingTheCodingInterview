@@ -89,7 +89,7 @@ public class OneAway {
         return true;
     }
 
-    /* first string is always the longer string */
+    /* second string is always the longer string */
     public boolean oneEditInsert(String s1, String s2) {
         int idx1 = 0;
         int idx2 = 0;
@@ -128,10 +128,9 @@ public class OneAway {
                     return false;
 
                 foundDifference = true;
-                if(s1.length() == s2.length())
+                if(s1.length() == s2.length()) // in case letter was only replaced
                     idx1++; // increase index of shorter string
             }
-
             else {
                 idx1++; // move index 1 if current character are the same
             }
