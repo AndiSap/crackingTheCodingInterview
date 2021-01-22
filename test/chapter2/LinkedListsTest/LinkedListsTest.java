@@ -2,6 +2,7 @@ package chapter2.LinkedListsTest;
 
 import chapter2.LinkedLists.DeDupe;
 import chapter2.LinkedLists.KtoLast;
+import chapter2.LinkedLists.DeleteMiddleNode;
 import chapter2.LinkedLists.LinkedListBasics.Node;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,6 +15,7 @@ import testLogger.TestLogger;
 public class LinkedListsTest {
     DeDupe instance;
     KtoLast ktoLastInstance;
+    DeleteMiddleNode deleteMiddle;
     TestLogger logger = new TestLogger(this);
     Node head;
 
@@ -21,6 +23,7 @@ public class LinkedListsTest {
     public void setUp() {
         instance = new DeDupe();
         ktoLastInstance = new KtoLast();
+        deleteMiddle = new DeleteMiddleNode();
         head = new Node(1);
         head.appendToTail(2);
         head.appendToTail(3);
@@ -65,5 +68,10 @@ public class LinkedListsTest {
         Node ktoLast = ktoLastInstance.kToLastWithPointers(head, 3);
     }
 
+    @Test
+    public void testDeleteMiddleWithHead() {
+        logger.log("Testing delete middle node withe head given");
+        deleteMiddle.deleteMiddle(head);
+    }
 }
 

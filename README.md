@@ -14,3 +14,4 @@
 ### Chapter 2: Linked Lists
 - dedupe - *Remove duplicates from an unsorted list*
 - kthToLast - *Find the kth to last element of singly linked list*
+- deleteMiddle - *Delete the node in the middle of singly linked list*
