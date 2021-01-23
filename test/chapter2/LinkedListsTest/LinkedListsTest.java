@@ -160,5 +160,29 @@ public class LinkedListsTest {
         list1.appendToTail(0);
         Assert.assertTrue(palindrome.checkPalindrome(list1));
     }
+
+    @Test
+    public void testPalindrome2Pointers() {
+        logger.log("Testing is palindrome using 2 pointers");
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+//        list1.appendToTail(2);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+        Assert.assertTrue(palindrome.checkPalindrome2Pointers(list1));
+    }
+
+    @Test
+    public void testPalindromeRecursive() {
+        logger.log("Testing is palindrome using recursion");
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        list1.appendToTail(2);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+        Assert.assertTrue(palindrome.checkRecursive(list1));
+    }
 }
 
