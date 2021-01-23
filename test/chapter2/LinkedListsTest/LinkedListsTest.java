@@ -5,6 +5,7 @@ import chapter2.LinkedLists.KtoLast;
 import chapter2.LinkedLists.DeleteMiddleNode;
 import chapter2.LinkedLists.Partition;
 import chapter2.LinkedLists.SumLists;
+import chapter2.LinkedLists.Palindrome;
 import chapter2.LinkedLists.LinkedListBasics.Node;
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,6 +21,7 @@ public class LinkedListsTest {
     DeleteMiddleNode deleteMiddle;
     Partition partition;
     SumLists sumlists;
+    Palindrome palindrome;
     TestLogger logger = new TestLogger(this);
     Node head;
 
@@ -30,6 +32,7 @@ public class LinkedListsTest {
         deleteMiddle = new DeleteMiddleNode();
         partition = new Partition();
         sumlists = new SumLists();
+        palindrome = new Palindrome();
         head = new Node(1);
         head.appendToTail(2);
         head.appendToTail(5);
@@ -132,7 +135,6 @@ public class LinkedListsTest {
         list2.appendToTail(9);
         list2.appendToTail(5);
         Node solution = sumlists.add2Lists(list1, list2);
-        logger.log("Testing sum list reverse recursive when number is carried over");
     }
 
     @Test
@@ -146,7 +148,17 @@ public class LinkedListsTest {
         list2.appendToTail(9);
         list2.appendToTail(5);
         Node solution = sumlists.add2ListsForward(list1, list2);
-        logger.log("Testing sum list forward recursive");
+    }
+
+    @Test
+    public void testPalindromeReverse() {
+        logger.log("Testing is palindrome using reverse check");
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+        Assert.assertTrue(palindrome.checkPalindrome(list1));
     }
 }
 
