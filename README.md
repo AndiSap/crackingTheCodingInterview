@@ -15,3 +15,5 @@
 - dedupe - *Remove duplicates from an unsorted list*
 - kthToLast - *Find the kth to last element of singly linked list*
 - deleteMiddle - *Delete the node in the middle of singly linked list*
+- partition - *Partition linked list around a value x*
+- sumLists - *Sum 2 numbers given as linked lists where digits are stored in reverse order (forward order)*

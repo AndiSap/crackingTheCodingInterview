@@ -3,6 +3,8 @@ package chapter2.LinkedListsTest;
 import chapter2.LinkedLists.DeDupe;
 import chapter2.LinkedLists.KtoLast;
 import chapter2.LinkedLists.DeleteMiddleNode;
+import chapter2.LinkedLists.Partition;
+import chapter2.LinkedLists.SumLists;
 import chapter2.LinkedLists.LinkedListBasics.Node;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,6 +18,8 @@ public class LinkedListsTest {
     DeDupe instance;
     KtoLast ktoLastInstance;
     DeleteMiddleNode deleteMiddle;
+    Partition partition;
+    SumLists sumlists;
     TestLogger logger = new TestLogger(this);
     Node head;
 
@@ -24,12 +28,17 @@ public class LinkedListsTest {
         instance = new DeDupe();
         ktoLastInstance = new KtoLast();
         deleteMiddle = new DeleteMiddleNode();
+        partition = new Partition();
+        sumlists = new SumLists();
         head = new Node(1);
         head.appendToTail(2);
-        head.appendToTail(3);
+        head.appendToTail(5);
         head.appendToTail(2);
         head.appendToTail(4);
         head.appendToTail(1);
+        head.appendToTail(3);
+        head.appendToTail(1);
+        head.appendToTail(7);
     }
 
     @Test
@@ -72,6 +81,72 @@ public class LinkedListsTest {
     public void testDeleteMiddleWithHead() {
         logger.log("Testing delete middle node withe head given");
         deleteMiddle.deleteMiddle(head);
+    }
+
+    @Test
+    public void testPartition() {
+        logger.log("Testing partition with using 2 linked lists");
+        Node solution = partition.partition(head, 4);
+    }
+
+    @Test
+    public void testPartitionRearrange() {
+        logger.log("Testing partition with using rearrangement");
+        Node solution = partition.partitionRearrange(head, 4);
+    }
+
+    @Test
+    public void testSumListReverse() {
+        logger.log("Testing sum list reverse");
+        Node list1 = new Node(7);
+        list1.appendToTail(1);
+        list1.appendToTail(6);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(9);
+        list2.appendToTail(2);
+        Node solution = sumlists.sumLists(list1, list2);
+    }
+
+    @Test
+    public void testSumListReverseRecursive() {
+        logger.log("Testing sum list reverse recursive");
+        Node list1 = new Node(7);
+        list1.appendToTail(1);
+        list1.appendToTail(6);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(9);
+        list2.appendToTail(2);
+        Node solution = sumlists.add2Lists(list1, list2);
+    }
+
+    @Test
+    public void testSumListReverseRecursiveAddCarry() {
+        logger.log("Testing sum list reverse recursive when number is carried over");
+        Node list1 = new Node(7);
+        list1.appendToTail(1);
+        list1.appendToTail(6);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(9);
+        list2.appendToTail(5);
+        Node solution = sumlists.add2Lists(list1, list2);
+        logger.log("Testing sum list reverse recursive when number is carried over");
+    }
+
+    @Test
+    public void testSumListForwardRecursive() {
+        logger.log("Testing sum list forward recursive");
+        Node list1 = new Node(6);
+        list1.appendToTail(1);
+        list1.appendToTail(7);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(9);
+        list2.appendToTail(5);
+        Node solution = sumlists.add2ListsForward(list1, list2);
+        logger.log("Testing sum list forward recursive");
     }
 }
 
