@@ -23,6 +23,14 @@ public class LinkedListBasics {
             n.next = nextNode;
         }
 
+        public void addNodeToTail(Node node) {
+            Node n = this;
+            while(n.next != null) {
+                n = n.next;
+            }
+            n.next = node;
+        }
+
         public Node deleteNode(Node head, int target) {
             if(head == null)
                 return null;

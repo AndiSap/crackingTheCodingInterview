@@ -6,6 +6,7 @@ import chapter2.LinkedLists.DeleteMiddleNode;
 import chapter2.LinkedLists.Partition;
 import chapter2.LinkedLists.SumLists;
 import chapter2.LinkedLists.Palindrome;
+import chapter2.LinkedLists.Intersects;
 import chapter2.LinkedLists.LinkedListBasics.Node;
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,6 +23,7 @@ public class LinkedListsTest {
     Partition partition;
     SumLists sumlists;
     Palindrome palindrome;
+    Intersects intersects;
     TestLogger logger = new TestLogger(this);
     Node head;
 
@@ -33,6 +35,7 @@ public class LinkedListsTest {
         partition = new Partition();
         sumlists = new SumLists();
         palindrome = new Palindrome();
+        intersects = new Intersects();
         head = new Node(1);
         head.appendToTail(2);
         head.appendToTail(5);
@@ -183,6 +186,84 @@ public class LinkedListsTest {
         list1.appendToTail(1);
         list1.appendToTail(0);
         Assert.assertTrue(palindrome.checkRecursive(list1));
+    }
+
+    @Test
+    public void testIntersectTrue() {
+        logger.log("Testing intersects using naive approach in O(A*B)");
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        Node intersect = new Node(3);
+        list1.addNodeToTail(intersect);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(6);
+        list2.appendToTail(2);
+        list2.addNodeToTail(intersect);
+        Node solution = intersects.intersect(list1, list2);
+        Assert.assertEquals(intersect, solution);
+    }
+
+    @Test
+    public void testIntersectFalse() {
+        logger.log("Testing intersects false case using naive approach in O(A*B)");
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        Node intersect = new Node(3);
+        list1.addNodeToTail(intersect);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(6);
+        list2.appendToTail(3);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+        Node solution = intersects.intersect(list1, list2);
+        Assert.assertNotEquals(intersect, solution);
+    }
+
+    @Test
+    public void testIntersectImprovedTrue() {
+        logger.log("Testing intersects using better approach in O(A+B)");
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        Node intersect = new Node(3);
+        list1.addNodeToTail(intersect);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(6);
+        list2.appendToTail(2);
+        list2.addNodeToTail(intersect);
+        Node solution = intersects.findIntersection(list1, list2);
+        Assert.assertEquals(intersect, solution);
+    }
+
+    @Test
+    public void testIntersectImprovedFalse() {
+        logger.log("Testing intersects false case using better approach in O(A+B)");
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        Node intersect = new Node(3);
+        list1.addNodeToTail(intersect);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+
+        Node list2 = new Node(5);
+        list2.appendToTail(6);
+        list2.appendToTail(3);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+        Node solution = intersects.findIntersection(list1, list2);
+        Assert.assertNotEquals(intersect, solution);
     }
 }
 
