@@ -7,6 +7,7 @@ import chapter2.LinkedLists.Partition;
 import chapter2.LinkedLists.SumLists;
 import chapter2.LinkedLists.Palindrome;
 import chapter2.LinkedLists.Intersects;
+import chapter2.LinkedLists.LoopDetection;
 import chapter2.LinkedLists.LinkedListBasics.Node;
 import org.junit.Assert;
 import org.junit.Before;
@@ -24,6 +25,7 @@ public class LinkedListsTest {
     SumLists sumlists;
     Palindrome palindrome;
     Intersects intersects;
+    LoopDetection loopDetection;
     TestLogger logger = new TestLogger(this);
     Node head;
 
@@ -36,6 +38,7 @@ public class LinkedListsTest {
         sumlists = new SumLists();
         palindrome = new Palindrome();
         intersects = new Intersects();
+        loopDetection = new LoopDetection();
         head = new Node(1);
         head.appendToTail(2);
         head.appendToTail(5);
@@ -263,6 +266,42 @@ public class LinkedListsTest {
         list1.appendToTail(1);
         list1.appendToTail(0);
         Node solution = intersects.findIntersection(list1, list2);
+        Assert.assertNotEquals(intersect, solution);
+    }
+
+    @Test
+    public void testLoopDetectionTrue() {
+        logger.log("Testing loop detection true case");
+        Node intersect = new Node(3);
+
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        list1.addNodeToTail(intersect);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+        list1.appendToTail(6);
+        list1.appendToTail(2);
+        list1.addNodeToTail(intersect);
+
+        Node solution = loopDetection.findBeginning(list1);
+        Assert.assertEquals(intersect, solution);
+    }
+
+    @Test
+    public void testLoopDetectionFalse() {
+        logger.log("Testing loop detection false case");
+        Node intersect = new Node(3);
+
+        Node list1 = new Node(0);
+        list1.appendToTail(1);
+        list1.appendToTail(2);
+        list1.appendToTail(1);
+        list1.appendToTail(0);
+        list1.appendToTail(6);
+        list1.appendToTail(2);
+
+        Node solution = loopDetection.findBeginning(list1);
         Assert.assertNotEquals(intersect, solution);
     }
 }

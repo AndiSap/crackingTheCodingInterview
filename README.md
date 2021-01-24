@@ -19,3 +19,4 @@
 - sumLists - *Sum 2 numbers given as linked lists where digits are stored in reverse order (forward order)*
 - isPalindrome - *Check if linked list is palindrome*
 - intersect - *Determine if 2 singly linked lists intersect*
+- loopDetection - *Find if liked lst contains loop and return fist node in loop*
