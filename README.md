@@ -20,3 +20,5 @@
 - isPalindrome - *Check if linked list is palindrome*
 - intersect - *Determine if 2 singly linked lists intersect*
 - loopDetection - *Find if liked lst contains loop and return fist node in loop*
+
+### Chapter 3: Stacks and Queues
