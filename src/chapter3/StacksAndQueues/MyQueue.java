@@ -15,7 +15,6 @@ public class MyQueue<T> {
 
     /**
      * Adds data to the end of the queue
-     * @param data
      */
     public void add(T data) {
         QueueNode<T> node = new QueueNode<>(data);
@@ -44,7 +43,6 @@ public class MyQueue<T> {
 
     /**
      * Only returns data at the start of the queue
-     * @return
      */
     public T peek() throws Exception {
         if(first == null)

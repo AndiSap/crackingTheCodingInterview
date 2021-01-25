@@ -22,3 +22,5 @@
 - loopDetection - *Find if liked lst contains loop and return fist node in loop*
 
 ### Chapter 3: Stacks and Queues
+- threeInOne - *Single array to implement 3 stacks*
+- stackMin - *Stack which has min function in O(1)*
