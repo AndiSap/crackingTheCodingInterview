@@ -24,3 +24,4 @@
 ### Chapter 3: Stacks and Queues
 - threeInOne - *Single array to implement 3 stacks*
 - stackMin - *Stack which has min function in O(1)*
+- setOfStacks - *Implement set of stacks: Always create new internal stack after some threshold is reached*
