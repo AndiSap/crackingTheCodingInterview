@@ -26,3 +26,4 @@
 - stackMin - *Stack which has min function in O(1)*
 - setOfStacks - *Implement set of stacks: Always create new internal stack after some threshold is reached*
 - myQueue - *Implement queue class which implements a queue using 2 stacks*
+- sortStack - *Sort a stack such that the smallest items are on top*
