@@ -27,3 +27,4 @@
 - setOfStacks - *Implement set of stacks: Always create new internal stack after some threshold is reached*
 - myQueue - *Implement queue class which implements a queue using 2 stacks*
 - sortStack - *Sort a stack such that the smallest items are on top*
+- animalQueue - *Animal shelter which holds both cats and dogs (in 2 linked lists), implement enqueue, dequeue, dequeueCat, dequeueDog*
