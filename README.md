@@ -31,3 +31,4 @@
 
 ### Chapter 4: Trees and Grahps
 - routeBtwNodes - *Given a directed graph, find if there is a route from source to destination*
+- minimalBST - *Given sorted (increasing order) array with unique integer elements, create BST with minimal height*
