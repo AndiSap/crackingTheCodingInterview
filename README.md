@@ -28,3 +28,6 @@
 - myQueue - *Implement queue class which implements a queue using 2 stacks*
 - sortStack - *Sort a stack such that the smallest items are on top*
 - animalQueue - *Animal shelter which holds both cats and dogs (in 2 linked lists), implement enqueue, dequeue, dequeueCat, dequeueDog*
+
+### Chapter 4: Trees and Grahps
+- routeBtwNodes - *Given a directed graph, find if there is a route from source to destination*
