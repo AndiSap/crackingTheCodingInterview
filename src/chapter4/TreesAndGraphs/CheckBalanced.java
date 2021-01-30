@@ -33,4 +33,30 @@ public class CheckBalanced {
         else
             return isBalanced(node.left) && isBalanced(node.right);
     }
+
+    /**
+     * Better: modify getHeight function do return error if difference between left and right subtree > 1
+     */
+    public int checkHeight(TreeNode node) {
+        if(node == null)
+            return -1;
+
+        int leftHeight = checkHeight(node.left);
+        if(leftHeight == Integer.MIN_VALUE)
+            return Integer.MIN_VALUE;
+
+        int rightHeight = checkHeight(node.right);
+        if(rightHeight == Integer.MIN_VALUE)
+            return Integer.MIN_VALUE;
+
+        int diff = Math.abs(leftHeight - rightHeight);
+        if(diff > 1)
+            return Integer.MIN_VALUE;
+
+        return Math.max(rightHeight, leftHeight) + 1;
+    }
+
+    public boolean isBalancedFaster(TreeNode node) {
+        return checkHeight(node) != Integer.MIN_VALUE;
+    }
 }
