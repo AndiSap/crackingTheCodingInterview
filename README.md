@@ -34,3 +34,4 @@
 - minimalBST - *Given sorted (increasing order) array with unique integer elements, create BST with minimal height*
 - listsOfDepths - *Given a binary tree, create linked lists of all nodes at each depth*
 - checkBalanced - *Implement function to check if binary tree is balanced*
+- validBST - *Check if binary tree is a binary search tree*
