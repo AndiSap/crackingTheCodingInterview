@@ -35,3 +35,4 @@
 - listsOfDepths - *Given a binary tree, create linked lists of all nodes at each depth*
 - checkBalanced - *Implement function to check if binary tree is balanced*
 - validBST - *Check if binary tree is a binary search tree*
+- successor - *Find next in-order successor given a node in a valid BST*

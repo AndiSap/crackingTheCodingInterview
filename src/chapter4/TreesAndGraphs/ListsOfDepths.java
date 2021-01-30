@@ -62,6 +62,7 @@ public class ListsOfDepths {
 class TreeNode {
     public TreeNode left;
     public TreeNode right;
+    public TreeNode parent;
     public int data;
     public int size() { return 0; }
 }
