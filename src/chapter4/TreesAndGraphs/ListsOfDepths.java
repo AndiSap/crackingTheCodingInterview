@@ -15,7 +15,7 @@ public class ListsOfDepths {
             return;
 
         LinkedList<TreeNode> currentList = null;
-        if(lists.size() != depth) { // must create new list for current level
+        if(lists.size() == depth) { // current level is missing!
             currentList = new LinkedList<>();
             lists.add(currentList);
         } else {
@@ -34,7 +34,7 @@ public class ListsOfDepths {
     }
 
     /**
-     * Use BFS (iterative version
+     * Use BFS (iterative version)
      */
     public ArrayList<LinkedList<TreeNode>> createLevelsBfs(TreeNode root) {
         ArrayList<LinkedList<TreeNode>> lists = new ArrayList<>();
