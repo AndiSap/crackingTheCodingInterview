@@ -21,8 +21,8 @@ public class MinimalBST {
         // calculate middle
         int middle = (start + end) / 2;
         TNode root = new TNode(array[middle]);
-        root.left = createMinBST(array, start, middle - 1);
-        root.right = createMinBST(array, middle + 1, end);
+        root.left = createMinBST(array, start, middle - 1); // recurse for left subtree
+        root.right = createMinBST(array, middle + 1, end); // recurse for right subtree
         return root;
     }
 }
