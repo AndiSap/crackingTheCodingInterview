@@ -1,7 +1,9 @@
 package chapter4.TreesAndGraphs;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Stack;
 
 /**
  * Given a list of projects and dependencies, find a build order that allows the project to be built
@@ -69,11 +71,18 @@ public class BuildOrder {
         return offset;
     }
 
-    class ProjectNode {
+    static class ProjectNode {
         ArrayList<ProjectNode> neighbors = new ArrayList<>();
         HashMap<String, ProjectNode> map = new HashMap<>();
         private String name;
         private int dependencies = 0;
+
+        //-------- for topological sort ---------
+        public enum State { COMPLETE, PARTIAL, BLANK };
+        private State state = State.BLANK;
+        public State getState() { return state; }
+        public void setState(State state) { this.state = state; }
+        //--------------------------------------
 
         public ProjectNode(String name) { this.name = name; }
 
@@ -116,5 +125,42 @@ public class BuildOrder {
         public ArrayList<ProjectNode> getNodes() {
             return nodes;
         }
+    }
+
+    /**
+     * Using topological search via DFS to solve the problem
+     */
+    public Stack<ProjectNode> findBuildOrderDfs(String[] projects, String[][] dependencies) {
+        Graph graph = buildGraph(projects, dependencies);
+        return orderProjectsDfs(graph.getNodes());
+    }
+
+    Stack<ProjectNode> orderProjectsDfs(ArrayList<ProjectNode> nodes) {
+        Stack<ProjectNode> stack = new Stack<>();
+        for(ProjectNode node : nodes) { // for every node do dfs search
+            if(node.getState() == ProjectNode.State.BLANK) {
+                boolean noCycle = topoDfs(node, stack);
+                if(!noCycle) return null;
+            }
+        }
+        return stack;
+    }
+
+    boolean topoDfs(ProjectNode node, Stack<ProjectNode> stack) {
+        if(node.getState() == ProjectNode.State.PARTIAL)
+            return false;
+
+        if(node.getState() == ProjectNode.State.BLANK) {
+            node.setState(ProjectNode.State.PARTIAL);
+            ArrayList<ProjectNode> neighbors = node.getNeighbors();
+
+            for(ProjectNode next : neighbors) {
+                boolean result = topoDfs(next, stack);
+                if(!result) return false;
+            }
+            node.setState(ProjectNode.State.COMPLETE);
+            stack.push(node);
+        }
+        return true;
     }
 }
