@@ -5,6 +5,7 @@ package chapter4.TreesAndGraphs;
  */
 public class FindCommonAncestor {
 
+    // ------------------------- With link to parent --------------------------
     /**
      * Assumption: each node has also a parent node reference
      *
@@ -77,5 +78,58 @@ public class FindCommonAncestor {
         TreeNode parent = node.parent;
         if(parent.left == node) return parent.right;
         return parent.left;
+    }
+
+    // ------------------------- Without link to parent --------------------------
+    public TreeNode commonAncestorWithoutLink(TreeNode root, TreeNode node1, TreeNode node2) {
+        if(root == null) return null;
+        if(!covers(root, node1) || !covers(root, node2))
+            return null;
+
+        return ancestorHelper(root, node1, node2);
+    }
+
+    /**
+     * Time: O(n)
+     * specifically O(2n) since we run cover on both left and right side
+     */
+    public TreeNode ancestorHelper(TreeNode root, TreeNode node1, TreeNode node2) {
+        if(root == null || node1 == null || node2 == null)
+            return null;
+
+        boolean node1Left = covers(root.left, node1); // is node1 in left subtree
+        boolean node2Left = covers(root.left, node2); // is node2 in left subtree
+        if(node1Left != node2Left) // if they are in different subtrees -> this is current ancestor!
+            return root;
+
+        TreeNode next = node1Left ? root.left : root.right;
+        return ancestorHelper(next, node1, node2);
+    }
+
+    /**
+     * Optimized with returning nodes
+     */
+    public TreeNode commonAncestorOptimized(TreeNode root, TreeNode node1, TreeNode node2) {
+        if(root == null)
+            return null;
+
+        if(root == node1 && root == node2)
+            return root;
+
+        TreeNode left = commonAncestorOptimized(root.left, node1, node2);
+        if(left != null && left != node1 && left != node2) // already found common ancestor
+            return left;
+
+        TreeNode right = commonAncestorOptimized(root.right, node1, node2);
+        if(right != null && right != node1 && right != node2)
+            return right;
+
+        if(left != null && right != null)
+            return root; // common ancestor
+        else if(root == node1 || root == node1) {
+            return root; // nodes are in subtrees
+        } else {
+            return right != null ? right : left;
+        }
     }
 }
