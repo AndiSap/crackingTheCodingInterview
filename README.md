@@ -39,3 +39,4 @@
 - buildOrder - *Given a list of projects and dependencies, find a build order that allows the project to be built*
 - commonAncestor - *Find common ancestor of 2 nodes in a binary tree (not a BST)*
 - allBstSequences - *Given a BST with distinct elements, print all possible arrays that could have led to this tree*
+- checkSubtree - *Determine if T2 is subtree of T1 if T1 is much bigger than T2*
