@@ -38,3 +38,4 @@
 - successor - *Find next in-order successor given a node in a valid BST*
 - buildOrder - *Given a list of projects and dependencies, find a build order that allows the project to be built*
 - commonAncestor - *Find common ancestor of 2 nodes in a binary tree (not a BST)*
+- allBstSequences - *Given a BST with distinct elements, print all possible arrays that could have led to this tree*

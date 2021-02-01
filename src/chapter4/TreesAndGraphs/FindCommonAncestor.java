@@ -109,18 +109,18 @@ public class FindCommonAncestor {
     /**
      * Optimized with returning nodes
      */
-    public TreeNode commonAncestorOptimized(TreeNode root, TreeNode node1, TreeNode node2) {
+    public TreeNode commonAncestorWithoutParentsOptimized(TreeNode root, TreeNode node1, TreeNode node2) {
         if(root == null)
             return null;
 
         if(root == node1 && root == node2)
             return root;
 
-        TreeNode left = commonAncestorOptimized(root.left, node1, node2);
+        TreeNode left = commonAncestorWithoutParentsOptimized(root.left, node1, node2);
         if(left != null && left != node1 && left != node2) // already found common ancestor
             return left;
 
-        TreeNode right = commonAncestorOptimized(root.right, node1, node2);
+        TreeNode right = commonAncestorWithoutParentsOptimized(root.right, node1, node2);
         if(right != null && right != node1 && right != node2)
             return right;
 
