@@ -41,3 +41,5 @@
 - allBstSequences - *Given a BST with distinct elements, print all possible arrays that could have led to this tree*
 - checkSubtree - *Determine if T2 is subtree of T1 if T1 is much bigger than T2*
 - randomNode - *Implement BST from scratch which also has a method getRandomNode which returns a random node with equal probability for all nodes*
+
+### Chapter 10: Sorting and Searching
